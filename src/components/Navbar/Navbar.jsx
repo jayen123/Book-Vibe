@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Button from "../Button/Button";
 
 export default function Navbar() {
   const links = (
@@ -36,7 +37,7 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content gap-4 bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
@@ -44,10 +45,11 @@ export default function Navbar() {
         <a className="btn btn-ghost text-xl">Book Vibe</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1 gap-4">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end gap-4">
+        <Button isPrimary={true}>Sign In</Button>
+        <Button>Sign Up</Button>
       </div>
     </div>
   );
