@@ -1,6 +1,12 @@
-
+import { Outlet } from "react-router-dom";
+import Navbar from "./../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 export default function Root() {
   return (
-    <h1>Welcome to React Router DOM</h1>
-  )
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
+  );
 }
