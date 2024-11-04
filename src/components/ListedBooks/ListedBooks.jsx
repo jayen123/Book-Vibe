@@ -30,16 +30,20 @@ export default function ListedBooks() {
     setSortBy(sortedBy);
     if (sortedBy === "Rating") {
       const sortedBooks = [...books].sort((a, b) => b.rating - a.rating);
-      setWishlistBooks(sortedBooks);
       setReadBooks(sortedBooks);
+      setWishlistBooks(sortedBooks);
     }
     if (sortedBy === "Number of pages") {
-      const sortedBooks = [...books].sort((a, b) => b.totalPages - a.totalPages);
+      const sortedBooks = [...books].sort(
+        (a, b) => b.totalPages - a.totalPages
+      );
       setReadBooks(sortedBooks);
       setWishlistBooks(sortedBooks);
     }
     if (sortedBy === "Publisher year") {
-      const sortedBooks = [...books].sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+      const sortedBooks = [...books].sort(
+        (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
       setReadBooks(sortedBooks);
       setWishlistBooks(sortedBooks);
     }
@@ -76,9 +80,13 @@ export default function ListedBooks() {
           <TabPanel>
             <h2 className="text-xl font-bold mb-5">Reading Books</h2>
             <div className="space-y-5">
-              {readBooks.map((book) => (
-                <ListedBook key={book.bookId} book={book} />
-              ))}
+              {readBooks ? (
+                readBooks.map((book) => (
+                  <ListedBook key={book.bookId} book={book} />
+                ))
+              ) : (
+                <h1>Loading....</h1>
+              )}
             </div>
           </TabPanel>
           <TabPanel>
