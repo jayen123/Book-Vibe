@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Button from "../Button/Button";
+import { addReadList } from "../../utility/addToDb";
 
 export default function BookDetail() {
   const { bookId } = useParams();
@@ -19,9 +20,14 @@ export default function BookDetail() {
     yearOfPublishing,
   } = book;
 
+  const handleReadList = (id) => {
+    console.log("Clicked ");
+    addReadList(id)
+  }
+
   return (
-    <div className="hero bg-base-200">
-      <div className="hero-content grid lg:grid-cols-2">
+    <div className="hero">
+      <div className="hero-content grid lg:grid-cols-2 gap-10">
         <div className="bg-slate-500 lg:p-16 h-full rounded-2xl">
           <img
             src={image}
@@ -64,7 +70,7 @@ export default function BookDetail() {
             </div>
           </div>
           <div className="flex gap-4 mt-5">
-            <Button isPrimary={true}>Read</Button>
+            <Button onClick={() => handleReadList(bookId)} isPrimary={true}>Read</Button>
             <Button>Wishlist</Button>
           </div>
         </div>
