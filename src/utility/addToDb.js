@@ -36,4 +36,4 @@ const addReadList = (id) => {
   localStorage.setItem("read-list", storedReadListStr);
 };
 
-export { addReadList, addWishlist };
+export { addReadList, addWishlist, getReadList, getWishlist };

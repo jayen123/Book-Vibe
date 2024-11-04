@@ -8,3 +8,9 @@
 .menu li > *:not(ul, .menu-title, details, .btn):active, .menu li > *:not(ul, .menu-title, details, .btn).active, .menu li > details > summary:active{
     @apply bg-transparent text-[#23BE0A] border border-[#23BE0A] font-semibold;
 }
+.react-tabs__tab--selected{
+    @apply text-lg 
+}
+.react-tabs__tab:focus:after {
+    content: none !important;
+}
