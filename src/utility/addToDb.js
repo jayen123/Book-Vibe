@@ -6,6 +6,25 @@ const getReadList = () => {
   return [];
 };
 
+const getWishlist = () => {
+  const storedWishlist = localStorage.getItem("wishlist");
+  if (storedWishlist) {
+    return JSON.parse(storedWishlist);
+  }
+  return [];
+};
+
+const addWishlist = (id) => {
+  const storedWishlist = getWishlist();
+  if (storedWishlist.includes(id)) {
+    console.log("Book already in wishlist");
+    return;
+  }
+  storedWishlist.push(id);
+  const storedWishlistStr = JSON.stringify(storedWishlist);
+  localStorage.setItem("wishlist", storedWishlistStr);
+};
+
 const addReadList = (id) => {
   const storedReadList = getReadList();
   if (storedReadList.includes(id)) {
@@ -17,4 +36,4 @@ const addReadList = (id) => {
   localStorage.setItem("read-list", storedReadListStr);
 };
 
-export { addReadList };
+export { addReadList, addWishlist };

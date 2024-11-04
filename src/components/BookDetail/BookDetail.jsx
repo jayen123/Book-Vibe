@@ -1,6 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Button from "../Button/Button";
-import { addReadList } from "../../utility/addToDb";
+import { addReadList, addWishlist } from "../../utility/addToDb";
 
 export default function BookDetail() {
   const { bookId } = useParams();
@@ -22,8 +22,13 @@ export default function BookDetail() {
 
   const handleReadList = (id) => {
     console.log("Clicked ");
-    addReadList(id)
-  }
+    addReadList(id);
+  };
+
+  const handleWishList = (id) => {
+    console.log("Clicked ");
+    addWishlist(id);
+  };
 
   return (
     <div className="hero">
@@ -70,8 +75,10 @@ export default function BookDetail() {
             </div>
           </div>
           <div className="flex gap-4 mt-5">
-            <Button onClick={() => handleReadList(bookId)} isPrimary={true}>Read</Button>
-            <Button>Wishlist</Button>
+            <Button onClick={() => handleReadList(bookId)} isPrimary={true}>
+              Read
+            </Button>
+            <Button onClick={() => handleWishList(bookId)}>Wishlist</Button>
           </div>
         </div>
       </div>
